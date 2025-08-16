@@ -76,6 +76,6 @@ servers:
 # Triggers
 
 # Webhook 'event-based' triggers => most used GitHub Actions, CI/CD pipelines
-# Scheduled triggers
-# Manual triggers
+# Scheduled triggers => most used for periodic tasks, cron jobs, reports, checking website status
+# Manual triggers => most used for manual deployments, approvals, testing
 

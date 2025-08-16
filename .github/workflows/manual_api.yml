@@ -1,0 +1,16 @@
+name: manual deploy through api call
+
+on:
+  repository_dispatch:
+    types: [incident_report] # This allows the workflow to be triggered via API call, this is the payload
+
+jobs:
+  handle_incident:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: checkout code
+        uses: actions/checkout@v4.2.2
+
+      - name: incident details
+        run: echo "incident has been reported... ${{ github.event.client_payload.env }}"
