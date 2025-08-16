@@ -1,0 +1,19 @@
+name: first workflow
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: checkout code
+        uses: actions/checkout@v2
+
+      - name: list all files
+        run: |
+          echo "Listing all files in the repo:"
+          ls -la
