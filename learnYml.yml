@@ -1,0 +1,81 @@
+# yml is a superset of json
+# more human readable
+
+# we are learning yml syntax
+name: Learn YML
+
+# this is a comment in yml
+age: 33
+
+# data types in yml
+# two types: scalar 'simple' and collection 'complex-compound'
+
+# scalar =>  integer - float - boolean - string - date
+# collection => list - map
+
+# quotes in yml
+
+# storing numbers as strings using quotes
+serialNumber: '00007890'
+# regex patterns using quotes
+emailRegex: '^([a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,})$'
+# single quotes => we need exact meaning for special character <Literal>,
+# yml does not interpret special characters within single quotes
+
+# double quotes => we need meaning for special character,
+# yml makes interpretation for the special character within double quotes
+
+# writing multiline readable text using | and >
+# | => literal block scalar multiline input , output
+# > => folded block scalar multiline input, single line output
+
+long_message: |
+  This is a 
+  long message
+  It will be preserved as-is,
+
+# This is a
+# long message
+# It will be preserved as-is,
+
+folded_message: >
+  This is a long 
+  message
+
+  It will be folded into a single line,
+
+# This is a long message
+# It will be folded into a single line,
+
+# ======= Collections in yml ========
+
+# list of maps
+employees:
+  - name: John Doe
+    age: 30
+    position: Developer
+  - name: Jane Smith
+    age: 28
+    position: Designer
+
+# map of lists
+servers:
+  dev:
+    - host: dev.example.com
+      port: 8080
+    - host: test.example.com
+      port: 8082
+
+  staging:
+    - host: staging.example.com
+      port: 8081
+
+  production:
+    - host: prod.example.com
+      port: 80
+# Triggers
+
+# Webhook 'event-based' triggers => most used GitHub Actions, CI/CD pipelines
+# Scheduled triggers
+# Manual triggers
+
