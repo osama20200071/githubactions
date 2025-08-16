@@ -1,0 +1,35 @@
+name: Manual Trigger Workflow
+
+on:
+  workflow_dispatch: # This allows the workflow to be triggered manually
+    inputs: # passing inputs to the workflow
+      env:
+        description: 'Choose the env?'
+        required: true
+        default: 'staging'
+        type: choice
+        options:
+          - 'staging'
+          - 'production'
+
+jobs:
+  manual_deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4.2.2
+
+      # - name: Set up Node.js
+      #   uses: actions/setup-node@v4
+      #   with:
+      #     node-version: '20'
+
+      # - name: Install dependencies
+      #   run: npm install
+
+      # - name: Run tests
+      #   run: npm test
+
+      - name: Deploy application
+        run: echo "Deploying application... ${{ inputs.env }}" # Replace with actual deployment command
