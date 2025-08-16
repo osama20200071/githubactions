@@ -1,0 +1,26 @@
+name: trigger on push or pull request
+
+on:
+  push:
+    branches:
+      - main
+      # any branch start with release/
+      - 'release/**'
+    paths:
+      # only trigger if files in src directory are changed
+      - 'src/**'
+
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4.2.2
+
+      - name: print welcome
+        run: |
+          echo "welcome from the push or pull request workflow:"
