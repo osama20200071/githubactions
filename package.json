@@ -1,0 +1,22 @@
+{
+  "name": "y",
+  "version": "1.0.0",
+  "description": "learning yml and write ci workflows",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm run test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/osama20200071/githubactions.git"
+  },
+  "keywords": [
+    "yml"
+  ],
+  "author": "osamakaram",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/osama20200071/githubactions/issues"
+  },
+  "homepage": "https://github.com/osama20200071/githubactions#readme"
+}
