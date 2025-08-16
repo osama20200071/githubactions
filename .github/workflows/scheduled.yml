@@ -1,0 +1,17 @@
+name: scheduled workflow
+
+on:
+  schedule:
+    - cron: '0 0 * * *' # Runs every day at midnight UTC
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4.2.2
+
+      - name: print welcome
+        run: |
+          echo "welcome from the scheduled workflow:"
