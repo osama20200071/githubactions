@@ -3,6 +3,7 @@ name: manual deploy through api call
 on:
   repository_dispatch:
     types: [incident_report] # This allows the workflow to be triggered via API call, this is the payload
+    # the payload must contain the incident_report event type
 
 jobs:
   handle_incident:
