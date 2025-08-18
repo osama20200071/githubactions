@@ -31,3 +31,22 @@ jobs:
     steps:
       - name: complete job_4
         run: echo "completing ${{ github.job }}"
+
+  job_5:
+    runs-on: ubuntu-latest
+    needs: job_4
+    steps:
+      - name: complete job_5
+        run: |
+          npm install
+          npm run build
+        working-directory: ./my-project
+        shell: python
+      - name: using other shell
+        run: echo "This step uses a different shell"
+        shell: perl {0} # Tells GitHub Actions to use Perl shell to run that command
+
+
+        # we can use
+        # any shell available in the runner environment
+        # such as bash, sh, python, ruby, etc.
