@@ -4,7 +4,7 @@ on:
 jobs:
   matrix_job:
     strategy:
-      fail-fast: false
+      fail-fast: false # continue even some jobs fails
       max-parallel: 3
       matrix:
         os: [ubuntu-latest, windows-latest, macos-latest]
@@ -20,3 +20,21 @@ jobs:
 
     # this job will run for each runner 3 times with each node version
     # so total 9 times
+
+  expression:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Print job is working
+        run: echo 'Job is working'
+        if: ${{ github.event_name == 'push' || startsWith(github.ref , 'refs/tags/v') }}
+
+      - name: Send slack message if fails
+        run: echo '${{ job }} failed'
+        if: failure()
+      - name: Send slack message if success
+        run: echo '${{ job }} success'
+        if: success()
+#
+# contains(github.event.head_commit.message , 'Fix') => the commit message
+# waiting for the commit of that type => startsWith(github.ref , 'refs/tags/v') => push tagged version on docker hub 'for example'
+# success() - failure() - always() - cancelled()
