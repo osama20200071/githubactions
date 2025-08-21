@@ -20,7 +20,9 @@ jobs:
 
       - name: check for file exist
         run: |
-          if  [-f "config.yml"]; then
+          if [ -f "config.yml" ]; then
+            echo "::debug::file config.yml exist"
+          else
             echo "::error::file config.yml does not exist"
           fi
 
