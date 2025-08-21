@@ -1,0 +1,19 @@
+name: commands
+
+on:
+  workflow_dispatch:
+
+jobs:
+  job1:
+    runs-on: ubuntu-latest
+    steps:
+      - name: check for deprecated code
+
+        # simulate we found a deprecated code
+        # using warning annotation
+        run: |
+          deprecated=true
+          if [[ deprecated ]]; then
+
+            echo "::warning::Deprecated code found"
+          fi
