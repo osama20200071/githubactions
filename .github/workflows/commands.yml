@@ -17,3 +17,15 @@ jobs:
 
             echo "::warning::Deprecated code found"
           fi
+
+      - name: check for file exist
+        run: |
+          if  [-f "config.yml"]; then
+            echo "::error::file config.yml does not exist"
+          fi
+
+      - name: setting up env
+        run: echo "API_KEY=123" >> $GITHUB_ENV
+
+      - name: using api key
+        run: echo "using the api key $API_KEY"
