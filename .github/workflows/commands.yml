@@ -29,5 +29,8 @@ jobs:
       - name: setting up env
         run: echo "API_KEY=123" >> $GITHUB_ENV
 
+      - name: Masking the api key
+        run: echo "::add-mask::$API_KEY"
+
       - name: using api key
         run: echo "using the api key $API_KEY"
